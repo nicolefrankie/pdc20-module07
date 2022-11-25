@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    </head>
+    <body ng-app="">
+        <h1>Welcome</h1>
+        <h2>Homepage</h2>
+        <h3>Registration/Login</h3>
+        <form name="form">
+            <div ng-hide="toShow">
+                Enter Username: 
+                <input type="text" required ng-model="Name">
+                <br>
+                <br>
+                <input type="button" ng-disabled="form.$invalid" ng-click="toShow=true" value="Sign In"/>
+            </div>
+            <div ng-show="toShow">
+                Sign In successful!
+                <br>
+                <input type="button" ng-click="toShow=false" value="Log out"/>
+            </div>
+        </form>
+    </body>
+</html>

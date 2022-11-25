@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    </head>
+    <body ng-app="">
+        <h1>Welcome to the webpage </h1>
+        <h3> Do you have an account? Sign In <input type="checkbox" ng-model="myVar" ng-init="myVar"></h3> <br> 
+        <h3>If you don`t have an account, Kindly Sign Up  <input type="checkbox" ng-model="myVar2" ng-init="myVar2"></h3>
+
+        <form name="form">
+            <!-- ng-if, ng-hide, ng-show, ng-disabled, ng-click -->
+            <div ng-if="myVar">
+                <h2>Sign In</h2>
+                <div ng-hide="toShow">
+                    Enter Username: 
+                    <input type="text" required ng-model="Name">
+                    <br>
+                    <br>
+                    Enter Password: 
+                    <input type="password" required ng-model="Password">
+                    <br>
+                    <input type="button" ng-disabled="form.$invalid" ng-click="toShow=true" value="Sign In"/>
+                </div>
+                <div ng-show="toShow">
+                    Sign In successful!
+                    <br>
+                    <br>
+                    <input type="button" ng-click="toShow=false" value="Log out"/>
+                </div>
+            </div>
+
+            <div ng-if="myVar2">
+                <h2>Sign Up</h2>
+                <div ng-hide="toShow">
+                    Enter Email: 
+                    <input type="email" required ng-model="Email">
+                    <br>
+                    <br>
+                    Enter Username: 
+                    <input type="text" required ng-model="Name">
+                    <br>
+                    <br>
+                    Enter Password: 
+                    <input type="password" required ng-model="Password">
+                    <br>
+                    <input type="button" ng-disabled="form.$invalid" ng-click="toShow=true" value="Sign In"/>
+                </div>
+                <div ng-show="toShow">
+                    You have Sign Up successfully!
+                    <br>
+                    <br>
+                    <input type="button" ng-click="toShow=false" value="Log out"/>
+                </div>
+            </div>
+
+            <!-- ng-readonly -->
+            <div ng-if="myVar">
+                <br>
+                <br>
+                <label>Are you an AUF student: </label> 
+                <input type="checkbox" ng-model="checked"> <br>
+                <label>If not, please indicate your university/college: </label>
+                <input type="text" ng-readonly="checked" value=""/>
+            </div>
+
+            <div ng-if="myVar2">
+                <br>
+                <br>
+                <label>Are you an AUF student: </label> 
+                <input type="checkbox" ng-model="checked"> <br>
+                <label>If not, please indicate your university/college: </label>
+                <input type="text" ng-readonly="checked" value=""/>
+            </div>
+        </form>
+    </body>
+</html>
